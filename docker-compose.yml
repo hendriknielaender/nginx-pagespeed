@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx-pagespeed:latest
+    restart: unless-stopped
+    volumes:
+      - ./etc/nginx:/etc/nginx/conf.d
+    ports:
+      - "8080:80"
+    environment:
+      - NGINX_HOST=example.com
+      - NGINX_PORT=80
